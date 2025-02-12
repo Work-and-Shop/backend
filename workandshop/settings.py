@@ -51,8 +51,10 @@ INSTALLED_APPS = [
     "dj_rest_auth.registration",
     "rest_framework",  # Django REST Framework
     "rest_framework.authtoken",  # REST framework with auth token
+    "django_vercel",
     # local apps
     'contact_us',
+
 ]
 
 MIDDLEWARE = [
@@ -63,6 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = 'workandshop.urls'
@@ -91,10 +94,16 @@ WSGI_APPLICATION = 'workandshop.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'oVJFHgjAWtZeWtGCYjoqATYfOAbHVsYT',
+        'HOST': 'junction.proxy.rlwy.net',
+        'PORT': '37340'
     }
 }
+
+#postgresql://postgres:oVJFHgjAWtZeWtGCYjoqATYfOAbHVsYT@junction.proxy.rlwy.net:37340/railway
 
 
 # Password validation
